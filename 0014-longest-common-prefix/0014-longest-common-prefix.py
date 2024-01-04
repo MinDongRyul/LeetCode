@@ -4,6 +4,9 @@ class Solution(object):
         :type strs: List[str]
         :rtype: str
         """
+        if len(strs) == 1:
+            return strs[0]
+
         len_strs = [len(str_) for str_ in strs]
         
         min_len = min(len_strs)
