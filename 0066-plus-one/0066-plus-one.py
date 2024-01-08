@@ -4,8 +4,10 @@ class Solution(object):
         :type digits: List[int]
         :rtype: List[int]
         """
-        digits = [str(num) for num in digits]
-        digits = ''.join(digits)
-        temp = (int(digits)+1)
-        temp = str(temp)
-        return [int(num) for num in temp]
+        for i in range(len(digits)-1, -1, -1):
+            if digits[i] == 9:
+                digits[i] = 0
+            else:
+                digits[i] = digits[i] + 1
+                return digits
+        return [1] + digits 
