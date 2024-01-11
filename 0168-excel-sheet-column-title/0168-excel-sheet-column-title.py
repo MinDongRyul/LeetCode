@@ -17,10 +17,12 @@ class Solution(object):
             rst.append(temp // (26 ** idx))
             temp %= (26 ** idx)
             
+        # 26,0 -> 25, 26 or 2, 0 -> 1, 26
         for idx in range(len(rst)-1):
             if rst[idx+1] == 0:
                 rst[idx], rst[idx+1] = rst[idx]-1, 26
 
+        # 1, 0 -> -1, 26 or 2,0 -> 1, 26
         for idx in range(len(rst)-1):
             if rst[idx] == 1 and rst[idx+1] == 0:
                 rst[idx+1] = 26
@@ -29,4 +31,4 @@ class Solution(object):
                 rst[idx+1] = 26
                 rst[idx] -= 1
                 
-        return ''.join([chr(num+64) for num in rst if num > 0])
+        return ''.join([chr(num+64) for num in rst if num > 0]) # -1은 제외
