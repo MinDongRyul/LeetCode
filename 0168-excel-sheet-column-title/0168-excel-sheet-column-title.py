@@ -24,9 +24,9 @@ class Solution(object):
         for idx in range(len(rst)-1):
             if rst[idx] == 1 and rst[idx+1] == 0:
                 rst[idx+1] = 26
-                rst[idx] = 'x'
+                rst[idx] = -1
             elif rst[idx+1] == 0:
                 rst[idx+1] = 26
                 rst[idx] -= 1
                 
-        return ''.join([chr(num+64) for num in rst if num != 'x'])
+        return ''.join([chr(num+64) for num in rst if num > 0])
