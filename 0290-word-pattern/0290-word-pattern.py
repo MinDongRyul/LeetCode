@@ -24,3 +24,5 @@ class Solution(object):
             
         if temp_pa_lst == temp_s_lst:
             return True
+
+        # pattern.index(i) -> i값의 index중 가장 작은 index return
