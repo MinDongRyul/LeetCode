@@ -1,3 +1,18 @@
+def cal(temp, c_lst):
+    stack = []
+    for idx, val in enumerate(temp):
+        if len(stack) != 0 and stack[-1] in c_lst:
+            sign = stack.pop()
+            num1 = stack.pop()
+            if sign == '*': total = str(int(num1) * int(val))
+            elif sign == '/': total = str(int(num1) // int(val))
+            elif sign == '+': total = str(int(num1) + int(val))
+            else: total = str(int(num1) - int(val))
+            stack.append(total)
+        else:
+            stack.append(val)
+    return stack
+
 class Solution():
     def calculate(self, s):
         """
@@ -18,9 +33,7 @@ class Solution():
         
         s : "42+5"
         r : 47
-        
-        """
-                
+        """  
         s = s.replace(' ','')
         temp, temp_str = [], ''
         for val in s:
@@ -35,31 +48,7 @@ class Solution():
         if len(temp) == 1:
             return int(temp[0])
         
-        stack, stack2 = [], []
-        for idx, val in enumerate(temp):
-            if len(stack) != 0 and stack[-1] in ['*', '/']:
-                sign = stack.pop()
-                num1 = stack.pop()
-                if sign == '*':
-                    total = str(int(num1) * int(val))
-                    stack.append(total)
-                else:
-                    total = str(int(num1) // int(val))
-                    stack.append(total)
-            else:
-                stack.append(val)
-
-        for idx, val in enumerate(stack):
-            if len(stack2) != 0 and stack2[-1] in ['+', '-']:
-                sign = stack2.pop()
-                num1 = stack2.pop()
-                if sign == '+':
-                    total = str(int(num1) + int(val))
-                    stack2.append(total)
-                else:
-                    total = str(int(num1) - int(val))
-                    stack2.append(total)
-            else:
-                stack2.append(val)
+        stack = cal(temp, ['*', '/'])
+        stack2 = cal(stack, ['+', '-'])
 
         return int(stack2[0])
