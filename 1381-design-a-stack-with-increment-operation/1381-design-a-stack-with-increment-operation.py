@@ -30,9 +30,13 @@ class CustomStack(object):
         :type val: int
         :rtype: None
         """
-        for idx in range(len(self.stack)):
-            if idx < k:
-                self.stack[idx] += val
+        # for idx in range(len(self.stack)):
+        #     if idx < k:
+        #         self.stack[idx] += val
+
+        min_ = min(k, len(self.stack))
+        for idx in range(min_):
+            self.stack[idx] += val
 
 
 # Your CustomStack object will be instantiated and called as such:
