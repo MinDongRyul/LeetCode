@@ -1,31 +1,32 @@
-def create_tree(lst):
+# def create_tree(lst):
     
-    tree = []
+#     tree = []
     
-    for idx, val in enumerate(lst):
-        idx += 1
+#     for idx, val in enumerate(lst):
+#         idx += 1
 
-        k = idx & -idx
+#         k = idx & -idx
 
-        if k == 1:
-            tree.append(val)
-        else:
-            tree.append(sum(lst[idx-k:idx]))
+#         if k == 1:
+#             tree.append(val)
+#         else:
+#             tree.append(sum(lst[idx-k:idx]))
         
-    return tree
+#     return tree
 
-def prefix_sum(i, tree):
-    result = 0
-    if i > 0:
-        while i > 0:
-            result += tree[i]
-            i -= ((i+1) & -(i+1))
-        return result
-    elif i == 0:
-        return tree[0]
+# def prefix_sum(i, tree):
+#     result = 0
+#     if i > 0:
+#         while i > 0:
+#             result += tree[i]
+#             i -= ((i+1) & -(i+1))
+#         return result
+#     elif i == 0:
+#         return tree[0]
 
 class NumArray(object):
     
+    # TLE
     # def __init__(self, nums):
     #     """
     #     :type nums: List[int]
