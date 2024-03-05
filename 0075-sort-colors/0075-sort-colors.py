@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
+        # insert sorting
         for val in range(1, len(nums)):
             key = nums[val]
             i = val - 1
