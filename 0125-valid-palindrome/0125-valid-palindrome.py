@@ -5,13 +5,11 @@ class Solution(object):
         :rtype: bool
         """
         prep_s = ''
+        s = s.lower()
         for val in s:
-            if val.isalpha():
-                prep_s += val.lower()
-            elif val.isdigit():
+            if val.isalnum():
                 prep_s += val
         
-        for i in range(len(prep_s)//2):
-            if prep_s[i] != prep_s[::-1][i]:
-                return False
+        if prep_s[:len(prep_s)//2] != prep_s[::-1][:len(prep_s)//2]:
+            return False
         return True
