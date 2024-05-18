@@ -18,7 +18,7 @@ class Solution(object):
         for i in range(len(nums)):
             val1, val2 = nums[i]+k, nums[i]-k
             if val1 in nums[i+1:]:
-                r.add(tuple(sorted([nums[i], val1])))
+                r.add((nums[i], val1))
             if val2 in nums[i+1:]:
-                r.add(tuple(sorted([nums[i], val2])))
+                r.add((val2, nums[i]))
         return len(r)
