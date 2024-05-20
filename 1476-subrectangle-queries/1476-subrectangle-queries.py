@@ -15,9 +15,13 @@ class SubrectangleQueries(object):
         :type newValue: int
         :rtype: None
         """
-        for y in range(col1, col2+1):
-            for x in range(row1, row2+1):
-                self.rec[x][y] = newValue
+        # for y in range(col1, col2+1):
+        #     for x in range(row1, row2+1):
+        #         self.rec[x][y] = newValue
+        diff_col = col2 - col1 
+        new_val_row = [newValue] * (diff_col + 1)
+        for r in range(row1, row2+1):
+            self.rec[r][col1:col2+1] = new_val_row
 
     def getValue(self, row, col):
         """
