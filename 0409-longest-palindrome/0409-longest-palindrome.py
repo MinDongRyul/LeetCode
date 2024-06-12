@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 
 class Solution(object):
     def longestPalindrome(self, s):
@@ -6,5 +6,12 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        temp = Counter(s)
+        # use Counter
+        # temp = Counter(s)
+        
+        # use defaultdict
+        temp = defaultdict(int)
+        for value in s:
+            temp[value] += 1
+
         return min(sum((count[1] - (count[1] % 2) for count in temp.items())) + 1, len(s))
