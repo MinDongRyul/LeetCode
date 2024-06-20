@@ -11,8 +11,6 @@ class Solution(object):
         for idx, num in enumerate(nums):
             nums[idx] = num + temp
             temp = nums[idx]
-            
-            if temp > 0:
-                r += 1
-            
-        return r
+            if temp <= 0:
+                return idx
+        return len(nums)
