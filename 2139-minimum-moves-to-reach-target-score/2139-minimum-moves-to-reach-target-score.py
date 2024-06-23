@@ -10,9 +10,8 @@ class Solution(object):
             if target % 2 == 0:
                 target //= 2
                 maxDoubles -= 1
-                cnt += 1
             else:
                 target -= 1
-                cnt += 1
+            cnt += 1
                 
-        return cnt + target-1
+        return cnt + target - 1
