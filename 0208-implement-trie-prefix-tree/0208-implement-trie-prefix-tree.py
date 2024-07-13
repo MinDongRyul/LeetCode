@@ -8,25 +8,25 @@ class Trie(object):
         :type word: str
         :rtype: None
         """
-        self.trie.append([word])
-
+        self.trie.append(word)
+    
     def search(self, word):
         """
         :type word: str
         :rtype: bool
         """
-        for val in self.trie:
-            if word in val:
-                return True
-        return False
+        if word in self.trie:
+            return True
+        else:
+            return False
 
     def startsWith(self, prefix):
         """
         :type prefix: str
         :rtype: bool
         """
-        for val in self.trie:
-            if val[0][:len(prefix)] == prefix:
+        for word in self.trie:
+            if word.startswith(prefix):
                 return True
         return False
 
