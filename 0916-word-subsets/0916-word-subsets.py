@@ -28,6 +28,8 @@ class Solution(object):
 
         count = collections.Counter()
         for b in words2:
+            # "lo" -> count = {"l":1, "o":1}
+            # count l= Counter("co") -> count = {"l":1, "o":1, "e":1}, not {"l":1, "o":2, "e":1} 
             count |= collections.Counter(b)
         # not count - Counter(a) : count에서 Counter(a)를 빼고 남는게 없어야 count를 전부 포함하는 word라는 의미
         return [a for a in words1 if not count - Counter(a)]
