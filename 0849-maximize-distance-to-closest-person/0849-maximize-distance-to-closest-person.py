@@ -12,11 +12,9 @@ class Solution(object):
         
         cnt = 0
         for seat in seats[seats.index(1):last_idx]:
+            cnt +=1
             if seat == 1:
-                cnt +=1
                 temp.append(cnt//2)
                 cnt = 0
-            else:
-                cnt += 1
         
         return max(temp)
