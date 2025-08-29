@@ -1,15 +1,6 @@
-class Solution(object):
-    def isPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
-        prep_s = ''
-        s = s.lower()
-        for val in s:
-            if val.isalnum():
-                prep_s += val
-        
-        if prep_s[:len(prep_s)//2] != prep_s[::-1][:len(prep_s)//2]:
-            return False
-        return True
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = "".join([s_.lower() for s_ in s if s_.isalpha() or s_.isdigit()])
+        half = len(s)//2
+        prev, post = s[:half], s[half:][::-1]
+        return prev == post if len(prev) == len(post) else s[:half] == s[half:][::-1][:-1]
